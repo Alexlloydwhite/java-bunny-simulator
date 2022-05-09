@@ -1,5 +1,9 @@
 package com.bunny.simulator.service
 
+import com.bunny.simulator.constants.Color
+import com.bunny.simulator.constants.FemaleName
+import com.bunny.simulator.constants.Gender
+import com.bunny.simulator.constants.Name
 import com.bunny.simulator.domain.Bunny
 import spock.lang.Specification
 import spock.lang.Subject
@@ -20,6 +24,25 @@ class BunnyServiceSpeck extends Specification {
         bunnies[0].age
         bunnies[0].name
         !bunnies[0].radioactiveMutantVampire
+    }
+
+    def "createNewBunny creates a new Bunny Object"() {
+        given:
+        Gender gender = Gender.FEMALE
+        Color color = Color.SPOTTED
+        int age = 8;
+        Name name = FemaleName.ALICE
+
+        when:
+        Bunny bunny = sut.createNewBunny()
+
+        then:
+//        1 * sut.randomValueFromEnum(Gender.class) >> gender
+//        1 * sut.randomValueFromEnum(Color.class) >> color
+//        1 * sut.randomBunnyAge >> age
+//        1 * sut.assignNameFrom(Gender.FEMALE) >> name
+
+        bunny
     }
 
     def "randomBunnyAge returns a random int between 0 and 10"() {

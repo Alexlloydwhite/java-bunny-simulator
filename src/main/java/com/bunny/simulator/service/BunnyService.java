@@ -1,8 +1,6 @@
 package com.bunny.simulator.service;
 
-import com.bunny.simulator.constants.Color;
-import com.bunny.simulator.constants.Gender;
-import com.bunny.simulator.constants.Name;
+import com.bunny.simulator.constants.*;
 import com.bunny.simulator.domain.Bunny;
 import org.springframework.stereotype.Service;
 
@@ -29,9 +27,18 @@ public class BunnyService {
         Gender gender = randomValueFromEnum(Gender.class);
         Color color = randomValueFromEnum(Color.class);
         int age = randomBunnyAge();
-        Name name = randomValueFromEnum(Name.class);
-
+        Name name = assignNameFrom(gender);
         return new Bunny(gender, color, age, name, false);
+    }
+
+    private Name assignNameFrom(Gender gender) {
+        Name name;
+        if (gender == Gender.FEMALE) {
+            name = randomValueFromEnum(FemaleName.class);
+        } else {
+            name = randomValueFromEnum(MaleName.class);
+        }
+        return name;
     }
 
     private static <T extends Enum<?>> T randomValueFromEnum(Class<T> clazz) {
