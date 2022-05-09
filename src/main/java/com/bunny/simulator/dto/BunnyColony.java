@@ -5,9 +5,9 @@ import com.bunny.simulator.domain.Bunny;
 import java.util.List;
 
 public class BunnyColony {
-    public List<Bunny> colony;
+    public List<Bunny> bunnies;
 
     public BunnyColony(List<Bunny> bunnyColony) {
-        this.colony = bunnyColony;
+        this.bunnies = bunnyColony;
     }
 }

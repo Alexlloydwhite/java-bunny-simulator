@@ -8,7 +8,7 @@ public class Bunny {
 
     private final Gender gender;
     private final Color color;
-    private final int age;
+    private int age;
     private final Name name;
     private final Boolean isRadioactiveMutantVampire;
 
@@ -38,5 +38,9 @@ public class Bunny {
 
     public Boolean getIsRadioactiveMutantVampire() {
         return this.isRadioactiveMutantVampire;
+    }
+
+    public void setAge(int age) {
+        this.age = age;
     }
 }

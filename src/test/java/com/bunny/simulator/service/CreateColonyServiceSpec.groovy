@@ -17,12 +17,12 @@ class CreateColonyServiceSpec extends Specification {
         BunnyColony bunnies = sut.createInitialBunnyColony()
 
         then:
-        bunnies.colony.size() == 5
-        bunnies.colony[0].gender
-        bunnies.colony[0].color
-        bunnies.colony[0].age
-        bunnies.colony[0].name
-        !bunnies.colony[0].isRadioactiveMutantVampire
+        bunnies.bunnies.size() == 5
+        bunnies.bunnies[0].gender
+        bunnies.bunnies[0].color
+        bunnies.bunnies[0].age
+        bunnies.bunnies[0].name
+        !bunnies.bunnies[0].isRadioactiveMutantVampire
     }
 
     def "createNewBunny creates a new Bunny Object"() {
