@@ -10,14 +10,14 @@ public class Bunny {
     private final Color color;
     private final int age;
     private final Name name;
-    private final Boolean radioactiveMutantVampire;
+    private final Boolean isRadioactiveMutantVampire;
 
     public Bunny(Gender gender, Color color, int age, Name name, Boolean radioactiveMutantVampire) {
         this.gender = gender;
         this.color = color;
         this.age = age;
         this.name = name;
-        this.radioactiveMutantVampire = radioactiveMutantVampire;
+        this.isRadioactiveMutantVampire = radioactiveMutantVampire;
     }
 
     public Gender getGender() {
@@ -36,7 +36,7 @@ public class Bunny {
         return this.name;
     }
 
-    public Boolean getRadioactiveMutantVampire() {
-        return this.radioactiveMutantVampire;
+    public Boolean getIsRadioactiveMutantVampire() {
+        return this.isRadioactiveMutantVampire;
     }
 }
