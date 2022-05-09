@@ -2,6 +2,7 @@ package com.bunny.simulator.service;
 
 import com.bunny.simulator.constants.*;
 import com.bunny.simulator.domain.Bunny;
+import com.bunny.simulator.dto.BunnyColony;
 import org.springframework.stereotype.Service;
 
 import java.security.SecureRandom;
@@ -13,14 +14,14 @@ public class BunnyService {
 
     private static final SecureRandom random = new SecureRandom();
 
-    public List<Bunny> createInitialBunnyColony() {
+    public BunnyColony createInitialBunnyColony() {
         List<Bunny> bunnyColony = new ArrayList<>();
 
         for (int i = 0; i < 5; i++) {
             bunnyColony.add(createNewBunny());
         }
 
-        return bunnyColony;
+        return new BunnyColony(bunnyColony);
     }
 
     private Bunny createNewBunny() {
