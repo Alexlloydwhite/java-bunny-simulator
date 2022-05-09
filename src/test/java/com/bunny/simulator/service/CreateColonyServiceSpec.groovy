@@ -1,28 +1,28 @@
 package com.bunny.simulator.service
 
-
 import com.bunny.simulator.constants.Gender
 import com.bunny.simulator.constants.Name
 import com.bunny.simulator.domain.Bunny
+import com.bunny.simulator.dto.BunnyColony
 import spock.lang.Specification
 import spock.lang.Subject
 
-class BunnyServiceSpec extends Specification {
+class CreateColonyServiceSpec extends Specification {
 
     @Subject
-    BunnyService sut = new BunnyService()
+    CreateColonyService sut = new CreateColonyService()
 
     def "createInitialBunnyColony returns a list of 5 bunnies"() {
         when:
-        List<Bunny> bunnies = sut.createInitialBunnyColony();
+        BunnyColony bunnies = sut.createInitialBunnyColony()
 
         then:
-        bunnies.size() == 5
-        bunnies[0].gender
-        bunnies[0].color
-        bunnies[0].age
-        bunnies[0].name
-        !bunnies[0].isRadioactiveMutantVampire
+        bunnies.colony.size() == 5
+        bunnies.colony[0].gender
+        bunnies.colony[0].color
+        bunnies.colony[0].age
+        bunnies.colony[0].name
+        !bunnies.colony[0].isRadioactiveMutantVampire
     }
 
     def "createNewBunny creates a new Bunny Object"() {

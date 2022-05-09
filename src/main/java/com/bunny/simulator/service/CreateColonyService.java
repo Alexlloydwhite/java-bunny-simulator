@@ -10,7 +10,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 @Service
-public class BunnyService {
+public class CreateColonyService {
 
     private static final SecureRandom random = new SecureRandom();
 
