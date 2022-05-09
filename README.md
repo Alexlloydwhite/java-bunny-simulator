@@ -4,7 +4,7 @@ Write a program that creates a simulation of a bunny colony
 ## The Rules*
 (* don't let these rules limit you. Feel free to add more features to the bunny object or the colony as a whole. Maybe even environmental factors that will effect them.)
 Each bunny object must have
-- Sex: Male, Female (random at creation 50/50)
+- gender: Male, Female (random at creation 50/50)
 - color: white, brown, black, spotted
 - age : 0-10 (years old)
 - Name : randomly chosen at creation from a list of bunny names.
