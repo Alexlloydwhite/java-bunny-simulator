@@ -1,8 +1,10 @@
 package com.bunny.simulator.service;
 
 import com.bunny.simulator.constants.*;
+import com.bunny.simulator.dao.BunnyColonyDao;
 import com.bunny.simulator.domain.Bunny;
 import com.bunny.simulator.dto.BunnyColony;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.security.SecureRandom;
@@ -12,16 +14,20 @@ import java.util.List;
 @Service
 public class CreateColonyService {
 
+    @Autowired
+    BunnyColonyDao bunnyColonyDao;
+
     private static final SecureRandom random = new SecureRandom();
 
     public BunnyColony createInitialBunnyColony() {
         List<Bunny> bunnyColony = new ArrayList<>();
 
         for (int i = 0; i < 5; i++) {
-            bunnyColony.add(createNewBunny());
+            Bunny newBunny = createNewBunny();
+            bunnyColony.add(newBunny);
         }
 
-        return new BunnyColony(bunnyColony);
+        return bunnyColonyDao.saveColony(bunnyColony);
     }
 
     private Bunny createNewBunny() {
