@@ -1,0 +1,29 @@
+name: CI
+on:
+  pull_request:
+    branches: [ main ]
+jobs:
+  build_test_api:
+    name: Building and Testing API
+    runs-on: ubuntu-latest
+    defaults:
+      run:
+        working-directory: ./src
+    steps:
+      - name: 'Checkout'
+        uses: actions/checkout@v2
+
+      - name: 'Setup Java'
+        uses: actions/setup-java@v1
+        with:
+          java-version: 11
+
+      - name: 'Check Java Version'
+        run: |
+          java --version
+      - name: 'Compile'
+        run: |
+          mvn compile
+      - name: 'Run Tests'
+        run: |
+          mvn test
