@@ -20,14 +20,20 @@ public class CreateColonyService {
     private static final SecureRandom random = new SecureRandom();
 
     public BunnyColony createInitialBunnyColony() {
-        List<Bunny> bunnyColony = new ArrayList<>();
+        List<Bunny> bunnies = new ArrayList<>();
 
         for (int i = 0; i < 5; i++) {
             Bunny newBunny = createNewBunny();
-            bunnyColony.add(newBunny);
+            bunnies.add(newBunny);
         }
 
-        return bunnyColonyDao.saveColony(bunnyColony);
+        try {
+            bunnyColonyDao.saveColony(bunnies);
+        } catch (Exception e) {
+           throw new RuntimeException("unable to save bunny colony", e);
+        }
+
+        return new BunnyColony(bunnies);
     }
 
     private Bunny createNewBunny() {

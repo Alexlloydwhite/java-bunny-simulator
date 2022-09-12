@@ -1,9 +1,6 @@
 package com.bunny.simulator.model;
 
-import com.bunny.simulator.domain.Bunny;
-
 import javax.persistence.*;
-import java.util.List;
 
 @Entity
 @Table(name = "colonies")
@@ -13,23 +10,60 @@ public class BunnyColonyModel {
     @GeneratedValue(strategy = GenerationType.AUTO)
     private long id;
 
-    @Column(name = "colony")
-    @ElementCollection(targetClass = Bunny.class)
-    private List<Bunny> colony;
+    @Column(name = "gender")
+    private String gender;
 
-    public BunnyColonyModel(List<Bunny> colony) {
-        this.colony = colony;
-    }
+    @Column(name = "color")
+    private String color;
+
+    @Column(name = "age")
+    private int age;
+
+    @Column(name = "name")
+    private String name;
+
+    @Column(name = "isRadioactiveMutantVampire")
+    private boolean isRadioactiveMutantVampire;
 
     public long getId() {
         return id;
     }
 
-    public List<Bunny> getColony() {
-        return colony;
+    public String getGender() { return gender; }
+
+    public void setGender(String gender) {
+        this.gender = gender;
     }
 
-    public void setColony(List<Bunny> colony) {
-        this.colony = colony;
+    public String getColor() {
+        return color;
+    }
+
+    public void setColor(String color) {
+        this.color = color;
+    }
+
+    public int getAge() {
+        return age;
+    }
+
+    public void setAge(int age) {
+        this.age = age;
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    public boolean getIsRadioactiveMutantVampire () {
+        return isRadioactiveMutantVampire;
+    }
+
+    public void setIsRadioactiveMutantVampire (boolean isRadioactiveMutantVampire) {
+        this.isRadioactiveMutantVampire = isRadioactiveMutantVampire;
     }
 }
